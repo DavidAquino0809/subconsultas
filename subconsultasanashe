@@ -1,0 +1,7 @@
+select nombre, apellido from clientes where localidad = (select id from ciudades where nombre = "buenos aires");
+select precio from productos where precfio > (select avg(precio) from productos);
+select * from clientes where id IN (select cliente from compras where producto = 5 );
+select nombre, poblacion from provincias where poblacion >  (select avg(poblacion) from provincias); 
+select * from productos where precio = (select precio from producto where descripcion = "birome azul");
+select nombre from ciudades where nombre = (select id from provincias where nombre = "buenos aires");
+select * from clientes where id not in (select cliente from compras);
