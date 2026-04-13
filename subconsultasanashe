@@ -5,3 +5,10 @@ select nombre, poblacion from provincias where poblacion >  (select avg(poblacio
 select * from productos where precio = (select precio from producto where descripcion = "birome azul");
 select nombre from ciudades where nombre = (select id from provincias where nombre = "buenos aires");
 select * from clientes where id not in (select cliente from compras);
+select * from clientes where apellido = (select apellido from clientes group by apellido order by count(*) desc limit 1);
+select * from clientes where localidad = (select localidad from clientes where nombre = "juan" and aepllido = "perez" );
+select * from productos where stock < (select avg(stock) from productos);
+select * from ciudades where poblacion > (select poblacion from ciudades where nombre = "rosario");
+select * from clientes where id in (select distinct cliente from compras);
+select * from productos where id not in (select distinct producto from compras);
+select * from provincias where nombre in (select nombre from provincias where region = "Pampa");
